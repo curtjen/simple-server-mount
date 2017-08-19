@@ -1,0 +1,21 @@
+{
+  "name": "server-mount",
+  "version": "1.0.0",
+  "description": "Server mounting CLI tool.",
+  "main": "server-mount.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssh",
+    "server",
+    "mount",
+    "sshfs"
+  ],
+  "author": "Curtjen",
+  "license": "MIT",
+  "dependencies": {
+    "node-cmd": "^3.0.0",
+    "promise": "^8.0.1"
+  }
+}
