@@ -11,10 +11,14 @@ let isMounting = true;
  * Splices an array of strings into usable options
  * @param {Array} args
  */
-const process_args = (args) => {
+const process_args = () => {
     // I promise to return an array of objects
     return new Promise((resolve) => {
         let cli_args = [];
+
+        if (process.argv.indexOf('config') === -1) {
+            config = JSON.parse(fs.readFileSync('sm-config.json'));
+        }
         // If more args than the defaults
         if (process.argv.length > 2) {
             process.argv.map((arg, index, arr) => {
