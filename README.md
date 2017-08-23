@@ -1,4 +1,4 @@
-# Server Mount
+# Simple Server Mount
 This is a CLI tool for mounting remote directories to your local machine.
 
 ## Installation
