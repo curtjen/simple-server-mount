@@ -31,8 +31,10 @@ const process_args = () => {
                     case 'config':
                         isMounting = true;
                         config = JSON.parse(fs.readFileSync(argArr[1]));
+                        console.log('config: ', config);
                         break;
                     default:
+                        // TODO: Add console.log message saying that the config cannot be found
                         break;
                 }
 
@@ -91,7 +93,7 @@ const mount_dirs = (config, dirs) => {
     let c = config;
     dirs.map((dir) => {
         console.log(`Mounting to directory: ${dir}`);
-        let opts = `auto_cache,defer_permissions,follow_symlinks,reconnect,noappledouble,allow_other,volname=${dir}`;
+        let opts = `auto_cache,defer_permissions,follow_symlinks,reconnect,noappledouble,volname=${dir}`;
         let command = `sshfs ${c.user}@${c.host}:${c.server_path}/${dir} ${c.dir_path}/${dir} -o ${opts}`;
         cmd.get(command, (err, data, stderr) => {
             if (stderr) console.log(stderr);
